@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Birthday Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #000; /* Black background */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: #FFD700;
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.5); }
+        }
+  .cake-container {
+            position: relative;
+            width: 200px;
+            height: 350px;
+            animation: riseUp 4s ease-in-out forwards;
+            opacity: 0;
+            animation-delay: 1s;
+        }
+
+        .bottom-tier, .top-tier {
+            position: absolute;
+            background: linear-gradient(to bottom, #FFB6C1, #FF69B4); /* Gradient for cake */
+            border: 5px solid #FF1493; /* Dark border */
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
+            border-radius: 10px;
+        }
+
+        .bottom-tier {
+            width: 200px;
+            height: 150px;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bottom-tier::after {
+            content: "";
+            width: 90%;
+            height: 10px;
+            background: #FF1493;
+            position: absolute;
+            bottom: -10px;
+            border-radius: 5px;
+        }
+.top-tier {
+            width: 140px;
+            height: 100px;
+            bottom: 150px;
+            left: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .top-tier::after {
+            content: "";
+            width: 90%;
+            height: 10px;
+            background: #FF1493;
+            position: absolute;
+            bottom: -10px;
+            border-radius: 5px;
+        }
+
+        .decorations {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+ 
+           .flower {
+            position: relative;
+            width: 25px;
+            height: 25px;
+            background-color: #FFD700; /* Yellow flower */
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+            margin: 5px;
+        }
+
+        .flower::after {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            top: 6px;
+            left: 6px;
+            background-color: #FF4500;
+            border-radius: 50%;
+        }
+
+        .candle {
+            position: absolute;
+            top: -20px;
+            left: 80px;
+            width: 50px;
+            height: 100px;
+            background-color: #FFF;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 1.5rem;
+            color: #FF4500;
+             font-weight: bold;
+        }
+
+        .candle .flame {
+            position: absolute;
+            top: -30px;
+            left: 15px;
+            width: 15px;
+            height: 30px;
+            background-color: #FF4500;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.8);
+            animation: flicker 0.2s infinite alternate;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 2.5rem;
+            font-family: 'Arial', sans-serif;
+            color: #FFD700;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 5s forwards;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 1);
+        }
+
+         .balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background: radial-gradient(circle, #FF4500, #DC143C);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 22px;
+            width: 5px;
+            height: 40px;
+            background: #000;
+        }
+
+        @keyframes riseUp {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+ @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-50vh) translateX(-30px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(30px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flicker {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+ .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #FFF;
+            background: #FF4500;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 6s forwards;
+            text-shadow: 0 0 5px rgba(255, 69, 0, 0.8);
+            box-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+        }
+
+        .button:hover {
+            background: #DC143C;
+            box-shadow: 0 0 15px rgba(220, 20, 60, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="cake-container">
+        <div class="bottom-tier">
+            <div class="decorations">
+                <div class="flower"></div>
+                <div class="flower"></div>
+            </div>
+        </div>
+        <div class="top-tier">
+            <div class="decorations">
+                <div class="flower"></div>
+                <div class="flower"></div>
+            </div>
+        </div>
+<div class="top-tier">
+            <div class="decorations">
+                <div class="flower"></div>
+                <div class="flower"></div>
+            </div>
+        </div>
+        <div class="candle">
+            23
+            <div class="flame"></div>
+        </div>
+    </div>
+    <div class="message">Happy Birthday!</div>
+
+    <button class="button" onclick="window.location.href='anotherpage.html';">Click Me</button>
+
+    <script>
+        // Create stars dynamically
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = ${Math.random() * 100}vw;
+            star.style.top = ${Math.random() * 100}vh;
+            star.style.animationDelay = ${Math.random() * 2}s;
+            document.body.appendChild(star);
+        }
+      // Create balloons dynamically
+        for (let i = 0; i < 20; i++) {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            balloon.style.left = ${Math.random() * 100}vw;
+            balloon.style.background = radial-gradient(circle, ${randomColor()}, ${randomColor()});
+            balloon.style.animationDelay = ${Math.random() * 5}s;
+            document.body.appendChild(balloon);
+        }
+
+        function randomColor() {
+            const colors = ["#FF4500", "#DC143C", "#FFD700", "#00CED1", "#32CD32", "#4B0082"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
+</body>
+</html>
